@@ -115,16 +115,18 @@
 
 
 </style>
-<div class="d-flex justify-content-center align-items-center" style="height: 482px; margin-bottom: 30px;">
-    <div class="card1" style="min-width: 700px">
-        <div class="card1-body">
-            <form action="{% url 'register' %}" id="form" method="POST" novalidate>
-                {% csrf_token %}
-                {{ form.as_p  }}
-                    <button type="submit" class="ali">Register</button>
-            </form>
+<section>
+    <div class="d-flex justify-content-center align-items-center" style="height: 482px; margin-bottom: 30px;">
+        <div class="card1" style="min-width: 700px">
+            <div class="card1-body">
+                <form action="{% url 'register' %}" id="form" method="POST" novalidate>
+                    {% csrf_token %}
+                    {{ form.as_p  }}
+                        <button type="submit" class="ali">Register</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
+    
+</section>
 {% endblock content %}

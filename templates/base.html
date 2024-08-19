@@ -11,13 +11,14 @@
 </head>
 <body>
     {% include 'components/nav.html' %}
-    <main class="container">
+    <main class="container4" >
         
     {% block content %}
         
     {% endblock content %}
-    {% include 'components/footer.html' %}
+
 </main>
+{% include 'components/footer.html' %}
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>
