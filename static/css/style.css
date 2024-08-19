@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+/* Общие стили для всех сообщений */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Сообщение об ошибке */
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+}
+
+/* Сообщение-предупреждение */
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffecb5;
+    color: #856404;
+}
+
+/* Сообщение об успехе */
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+/* Сообщение отладки (debug) */
+.alert-debug {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+/* Информационное сообщение */
+.alert-info {
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    color: #004085;
+}
+
+/* Дополнительные стили для отступов */
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.alert-rounded {
+    border-radius: 8px;
+}

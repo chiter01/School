@@ -1,0 +1,534 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        .data-start {
+            background: #D2E7F5;
+            width: 425px;
+            height: 171px;
+            display: flex;
+            align-items: center;
+        }
+        .data-start img {
+            width: 180.75px;
+            height: 133px;
+            margin-left: 20px;
+        }
+        .data-end {
+            display: flex;
+            width: 425px;
+            height: 171px;
+            background: #D2E7F5;
+            align-items: center;
+        }
+        .data-end img {
+            width: 190px;
+            height: 133px;
+            margin-left: 20px;
+        }
+        .container-data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 79px;
+            margin-bottom: 79px;
+        }
+        .Faces {
+            background: #1B83FF;
+            height: 558px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .white {
+            font-family: Verdana;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: left;
+            color: white;
+            width: 88px;
+            height: 60px;
+        }
+        .concurs {
+            display: flex;
+        }
+        .nastavnic {
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            width: 402.67px;
+            height: 310px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 34px;
+        }
+        .nastavnic2 {
+            justify-content: center;
+            display: flex;
+            gap: 19px;
+        }
+        .sovetnic {
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            width: 402.67px;
+            height: 310px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 34px;
+        }
+        .sovetnic2 {
+            justify-content: center;
+            display: flex;
+            gap: 19px;
+        }
+        .ekspety {
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            width: 402.67px;
+            height: 310px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 34px;
+        }
+        .ekspety2 {
+            justify-content: center;
+            display: flex;
+            gap: 19px;
+        }
+        .lol {
+            font-family: Gotham;
+            font-size: 22px;
+            color: #EEF5FA;
+            height: 0px;
+            margin-top: 22px;
+        }
+        .ser {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .lisa {
+            font-family: Gotham;
+            font-size: 130px;
+            font-weight: 700;
+            line-height: 100px;
+            letter-spacing: -0.005em;
+            text-align: left;
+            color: #3C95FF;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 100px; /* Adjusted spacing between items */
+            padding: 50px 0; /* Added padding to top and bottom */
+            background-color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            max-width: 300px; /* Increased width for better text alignment */
+        }
+
+        .stat-number {
+            font-size: 100px; /* Increased font size */
+            font-weight: bold;
+            color: #F4A261; /* Warm color for numbers */
+            line-height: 1;
+            margin-bottom: 20px; /* Added space below the number */
+        }
+
+        .stat-text {
+            font-size: 18px; /* Slightly increased text size */
+            font-weight: 400;
+            color: #2A2A2A; /* Darker color for text */
+            line-height: 1.4; /* Increased line height for better readability */
+        }
+        .finalis {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("{% static 'img/Rectangle 603 (1).png' %}");
+            gap: 30px;
+        }
+        .begat img{
+            width: 478px;
+            height: 479px;
+        }
+        .dva h3{
+            width: 397px;
+            font-size: 32px;
+        }
+        .dva p{
+            font-size: 16px;
+            width: 588px;
+        }
+        .dva {
+            margin-bottom: 21px;
+        }
+        .mogu h2{
+            font-size: 20px;
+            width: 486px;
+            color: #22374F;
+            margin-bottom: 36px;
+        }
+        .der {
+            display: flex;
+            gap: 40px;
+        }
+        .opraekt h6{
+            font-size: 32px;
+        }
+        .opraekt {
+            margin-bottom: 27px;
+        }
+        .obu p{
+            color: #22374F;
+        }
+        .proekta1 p{
+            font-size: 14px;
+            color: #3F546C;
+        }
+        .proekta1 h6{
+            font-size: 22px;
+            color: #22374F;
+        }
+        .proekta1 {
+            border: 8px solid #FFCA7B;
+            height: 284px;
+            padding: 23px 32px;
+        }
+        .zashita {
+            background: url("{% static 'img/Rectangle 603 (2).png' %}");
+            padding-top: 73px;
+            padding-bottom: 84px;
+        }
+        .zashit-proektov h3{
+            font-size: 32px;
+            color: #22374F;
+            margin-bottom: 8px;
+            font-family: Gotham;
+        }
+        .zashit-proektov p{
+            font-family: Gotham;
+            font-size: 14px;
+            color: #22374F;
+        }
+        .zashit-proektov {
+            margin-bottom: 15px;
+            margin-left: 90px;
+        }
+        .osenkadiv {
+            background: linear-gradient(51.01deg, #FCFDFE 28.58%, #EBF5FF 71.42%);
+            width: 360px;
+            height: 192px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 23px;
+        }
+        .osenka {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .osenkadiv h2{
+            font-size: 74px;
+            font-family: Gotham;
+            color: #1B83FF;
+            margin-right: 30px;
+        }
+        .osenkadiv h3{
+            font-size: 50px;
+            margin-top: -10px;
+            font-family: Gotham;
+            color: #1B83FF;
+        }
+        .poluchit {
+            display: flex;
+            justify-content: center;
+            padding-top: 86px;
+            padding-bottom: 88px;
+            background: #1B83FF;
+            align-items: center;
+            gap: 40px;
+        }
+        .vy h3{
+            color: white;
+            font-size: 32px;
+        }
+        .vy p{
+            color: white;
+            height: 100px;
+        }
+        .vozmojnost {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            padding-bottom: 45px;
+            padding-right: 31px;
+        }
+        .vozmojnost p{
+            color: white;
+        }
+    
+        .w1 {
+            padding: 5px;
+            background: #FFCA7B;
+            width: 135px;
+        }
+        .w2 {
+            padding: 5px;
+            background: #FFCA7B;
+            width: 128px;
+        }
+        .w3 {
+            padding: 5px;
+            background: #FFCA7B;
+            width: 123px;
+        }
+        .zayav {
+            display:flex;
+            gap:23px;
+            align-items: center;
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            padding-bottom: 32.5px;
+            padding-right: 8px;
+            padding-top:26.5px;
+            padding-left:27px;
+            margin-bottom: 40px;
+        }
+        .zayav img{
+            width: 142px;
+            height: 142px;
+
+        }
+        .podachu {
+            display:flex;
+            width:210px;
+            flex-wrap:wrap;
+            align-items:center;
+            height: 94px;
+        }
+        .w4 {
+            padding: 5px;
+            background: #FFCA7B;
+        }
+        .w5 {
+            padding: 5px;
+            background: #FFCA7B;
+        }
+        .w6 {
+            padding: 5px;
+            background: #FFCA7B;
+        }
+        .rub img{
+            width: 142px;
+            height: 142px;
+        }
+        .rub {
+            display:flex;
+            gap:23px;
+            align-items: center;
+            background: linear-gradient(51.01deg, #4399FF 28.58%, #1B83FF 71.42%);
+            padding-bottom: 32.5px;
+            padding-right: 18px;
+            padding-top:26.5px;
+            padding-left:27px;
+        }
+    </style>
+    <div class="container-data">
+        <div class="data-start">
+            <img src="{% static 'img/Rectangle 601 (1).png' %}" alt="">
+            <div style="margin-left:15px;" class="data-start-time">
+                <p style="padding-left: 5px; padding-right: 5px; width: 166px; background: white;">Сроки подачи заявки</p>
+                <h3 style="padding: 5px; background: #FFCA7B;">с 1 марта по 1 июня</h3>
+                <h3 style="padding: 5px; width: 98px; background: #FFCA7B;">2023 года</h3>
+            </div>
+        </div>
+        <div class="data-end">
+            <img src="{% static 'img/Rectangle 601 (2).png' %}" alt="">
+            <div class="data-end-time">
+                <p style="width: 130px; padding: 0px 5px; background: white;">Сроки обучения</p>
+                <h3 style="padding: 5px; background: #FFCA7B;">С июля по сентябрь</h3>
+                <h3 style="padding: 5px; width: 98px; background: #FFCA7B;">2023 года</h3>
+            </div>
+        </div>
+    </div>
+    <div class="Faces">
+        <p class="lisa">Лица конкурса</p>
+        <div class="ser">
+            <div class="concurs">
+                <div class="nastavnic">
+                    <p class="lol">Наставники:</p>
+                    <div class="nastavnic2">
+                        <div class="sergey">
+                            <img src="{% static 'img/Rectangle 8.png' %}" alt="">
+                            <p class="white">Сергей Николаевич Иванов</p>
+                        </div>
+                        <div class="elena">
+                            <img src="{% static 'img/Rectangle 9.png' %}" alt="">
+                            <p class="white">Елена Дмитриевна Николаева</p>
+                        </div>
+                        <div class="sergey2">
+                            <img src="{% static 'img/Rectangle 8 (1).png' %}" alt="">
+                            <p class="white">Сергей Юрьевич Сергеев</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sovetnic">
+                    <p class="lol">Советники:</p>
+                    <div class="sovetnic2">
+                        <div class="sergey">
+                            <img src="{% static 'img/Rectangle 8.png' %}" alt="">
+                            <p class="white">Сергей Николаевич Иванов</p>
+                        </div>
+                        <div class="elena">
+                            <img src="{% static 'img/Rectangle 9.png' %}" alt="">
+                            <p class="white">Елена Дмитриевна Николаева</p>
+                        </div>
+                        <div class="sergey2">
+                            <img src="{% static 'img/Rectangle 8 (1).png' %}" alt="">
+                            <p class="white">Сергей Юрьевич Сергеев</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ekspety">
+                    <p class="lol">Эксперты:</p>
+                    <div class="ekspety2">
+                        <div class="sergey">
+                            <img src="{% static 'img/Rectangle 8.png' %}" alt="">
+                            <p class="white">Сергей Николаевич Иванов</p>
+                        </div>
+                        <div class="elena">
+                            <img src="{% static 'img/Rectangle 9.png' %}" alt="">
+                            <p class="white">Елена Дмитриевна Николаева</p>
+                        </div>
+                        <div class="sergey2">
+                            <img src="{% static 'img/Rectangle 8 (1).png' %}" alt="">
+                            <p class="white">Сергей Юрьевич Сергеев</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-text">финалистов конкурса школьных социальных проектов «Могу всё изменить»</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-text">направления: «Образование и наука», «Здоровье и ЗОЖ», «Взаимодействие с органами власти»</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-text">бывших студента Школы 
+                наставничества учавствуют 
+                в текущем проекте.</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">10</div>
+            <div class="stat-text">советников и экспертов из сферы науки и образования, органов власти и НКО.</div>
+        </div>
+    </div>
+    <div class="finalis">
+        <div class="begat">
+            <img src="{% static 'img/Frame 1007.png' %}" alt="">
+        </div>
+        <div class="mogu">
+            <div class="dva">
+                <h3>Вы – финалист конкурса <br> «Могу всё изменить!»</h3>
+                <p>Если Вы замотивированы на создание сильного социального проекта, <br> требующего Вашего внимания и трудолюбия. Вы любите креативные решения <br> и готовы получать навыки социального проектирования. <br> Тогда этот проект для Вас!</p>
+            </div>
+            <h2>Для участия заполните онлайн анкету</h2>
+            <a class="button01" href="#" class="button">Подать заявку</a>
+        </div>
+    </div>
+    <div class="praekt" style="padding-left: 60px; padding-top: 86px; padding-bottom: 91px;">
+        <div class="opraekt">
+            <h6>О проекте</h6>
+        </div>
+        <div class="selproekt">
+            <div class="der">
+                <div class="obu">
+                    <img src="{% static 'img/Rectangle 2.png' %}" alt="">
+                    <p>Обучающие онлайн- <br>встречи от опытного<br>франчайзера <br>и экспертов</p>
+                </div>
+                <div class="obu">
+                    <img src="{% static 'img/Rectangle 2 (1).png' %}" alt="">
+                    <p>Индивидуальное <br>сопровождение <br>проектов</p>
+                </div>
+                <div class="obu">
+                    <img src="{% static 'img/Rectangle 2 (2).png' %}" alt="">
+                    <p>Проектная обработка <br>полученных данных</p>
+                </div>
+                <div class="obu">
+                    <img src="{% static 'img/Rectangle 2 (3).png' %}" alt="">
+                    <p>Встречи для разбора <br>сложных кейсов для <br>экспертов</p>
+                </div>
+                <div class="proekta1">
+                    <h6>Цель проекта:</h6>
+                    <p>Формирование навыков социального <br>проектирования у школьников в <br>социальной области, создание <br>преемственной системы социальных <br>лифтов для самореализации <br>молодежи и раскрытие потенциала <br>молодежи в интересах развития <br>социальной политики страны</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="zashita">
+        <div class="zashit-proektov">
+            <h3>Критерии защиты проектов:</h3>
+            <p>По результатам обучения и защиты проекта будут определены проекты, <br>рекомендуемые для финансовой поддержки на основании рейтинговой <br>системы оценивания</p>
+        </div>
+        <div class="osenka">
+            <div class="osenkadiv">
+                <h2>1</h2>
+                <p>Качество обучения и выполнения <br>домашних задания со стороны <br>наставника.</p>
+                <h3>оценка</h3>
+            </div>
+            <div class="osenkadiv">
+                <h2>2</h2>
+                <p>Достижение показатель <br>календарного плана <br>реализации проекта</p>
+                <h3>оценка</h3>
+            </div>
+            <div class="osenkadiv">
+                <h2>1</h2>
+                <p>Результаты публичной защиты <br>проектов в формате защиты <br>грантовой заявки</p>
+                <h3>оценка</h3>
+            </div>
+        </div>
+    </div>
+    <div class="poluchit">
+        <div class="ger">
+            <div class="vy">
+                <h3>Вы получите:</h3>
+                <p>возможность защитить свой проект в формате публичной защиты грантов <br>вместе с экспертами федерального уровня и получить спонсорские средства <br>от Учредителя Школы наставничества для усиления своей грантовой заявки.</p>
+            </div>
+            <div class="vozmojnost">
+                <img src="{% static 'img/Rectangle 619.png' %}" alt="">
+                <div class="real">
+                    <h3 class="w1">Возможность</h3>
+                    <h3 class="w2">реализовать</h3>
+                    <h3 class="w3">свой проект</h3>
+                <p>Возможность масштабирования проекта <br>под руководством опытного наставника<br>и экспертов, имеющих опыт в реализации <br>социальных проектов и участия в конкурсе <br>Президентских грантов</p>
+                </div>
+            </div>
+        </div>
+        <div class="gotovy" style="margin-top: 53px;">
+            <div class="zayav">
+                <img src="{% static 'img/Rectangle 621 (1).png' %}" alt="">
+                <div class="podachu">
+                    <h3 class="w4">Готовую заявку</h3>
+                    <h3 class="w5">На подачу </h3>
+                    <h3 class="w6">В грантовый конкурс</h3>
+                </div>
+            </div>
+            <div class="rub">
+                <img src="{% static 'img/Rectangle 621 (2).png' %}" alt="">
+                <div class="podachu">
+                    <h3 class="w4">100 000 рублей</h3>
+                    <h3 class="w5">в виде спонсорских</h3>
+                    <h3 class="w6">средств</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

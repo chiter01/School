@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}| {{ request.user.username }}{% endblock title %}
+
+{% block content %}
+
+<style>
+    /* Основные стили */
+    body {
+        background-color: #f8f9fa; /* Светлый фон */
+        color: #333;
+    }
+
+    .card5 {
+        min-width: 700px;
+        max-width: 500px;
+        margin: 0 auto; /* Центрирование карточки */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+        border-radius: 10px; /* Скругленные углы */
+        background-color: #fff; /* Белый фон карточки */
+        padding: 40px; /* Внутренние отступы */
+    }
+
+    .container5 {
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: #007bff; /* Синий цвет заголовка */
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #form input[type="text"],
+    #form input[type="email"],
+    #form input[type="password"],
+    #form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 20px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    #form button {
+        background-color: #007bff; /* Цвет кнопки */
+        color: white;
+        padding: 8px; /* Уменьшена высота на 20px */
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    #form button:hover {
+        background-color: #0056b3; /* Цвет кнопки при наведении */
+    }
+
+    .text-center {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .text-center a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .text-center a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container5" style="min-height: 80vh">
+    <div class="card5">
+        <div class="card5-body">
+            <h3 class="mb-4">Change password of {{ request.user.username }}</h3>
+
+            <form action="{% url 'profile' %}" id="form" method="POST" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <button type="submit">Save</button>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'change_password' %}">Change password</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

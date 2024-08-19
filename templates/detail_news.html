@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+| {{ news.name }}
+{% endblock title %}
+
+{% block content %}
+    <style>
+        .novosti a{
+            color:
+            #A8C5E5;
+        }
+        .obyavlenie h3{
+            font-size: 
+            56px;
+            color:#22374F;
+            margin-right: 66px;
+            width: 
+            719px;
+        }
+        .obyavlenie {
+            margin-bottom:52px;
+            
+        }
+        .vsenovosti {
+            display:flex;
+        }
+        .section1 {
+            background: url("{% static 'img/Rectangle 603 (3).png' %}");
+            height: 100%;
+            width: 100%;
+            padding-top: 96px;
+            padding-bottom: 93px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .sosi img{
+            width: 1010px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .sosi h4{
+            width: 1010px;
+            padding: 56px;
+            background: rgb(35, 35, 255);
+            color: white;
+        }
+    </style>
+    <div class="section1">
+        <div class="vsenovosti">
+            <div class="obyavlenie">
+                <div class="novosti">
+                    <a  href="{% url 'index_new' %}"><img src="{% static 'img/Vector 298.png' %}" alt=""></a>
+                    <a style="margin-left: 5px;" href="{% url 'index_new' %}">Все новости</a>
+                </div>
+                <h3>Объявлен старт конкурса <br>школьных социальных <br>проектов</h3>
+            </div>
+            <p class="des0">/ {{ news.date }}</p>
+        </div>
+        <div class="sosi">
+            <img class="" src="{{ news.image.url }}" class="w-75" alt="">
+            <h4>{{ news.description }}</h4>
+        </div>
+    </div>
+{% endblock content %}

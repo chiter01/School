@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Update News "{{ news.name }}"{% endblock title %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+          }
+        #id_tags {
+            margin-bottom: 10px;
+        }
+        
+        #id_is_published {
+            margin-bottom: 10px; 
+        }
+          .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+          }
+        
+          h3 {
+            text-align: center;
+            margin-bottom: 20px;
+          }
+        
+          .form-control,
+          .form-select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+          }
+        
+          .form-control:focus,
+          .form-select:focus {
+            border-color: #007bff;
+            outline: none;
+          }
+        
+          .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+        
+          .form-check-label {
+            margin-left: 10px;
+          }
+        
+          .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            border:none;
+            font-size:15px;
+          }
+        
+          .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+          }
+        
+          ul {
+            list-style: none;
+            padding: 0;
+            color: red;
+          }
+          .gert {
+            width: 100%;
+            max-width: 1230px;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+        form {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+    </style>
+    <div class="gert">
+      <h3 class="mb-4">Update news "{{ news.name }}"</h3>
+
+    <form action="{% url 'ubdate_news' id=news.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+        
+
+    </form>
+    </div>
+
+{% endblock content %} 

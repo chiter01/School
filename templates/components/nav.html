@@ -1,0 +1,270 @@
+{% load static %}
+<style>
+    .container-header {
+        display:flex;
+        align-items: center;
+        border-bottom: 1px solid #E0E0E0;
+        justify-content: center;
+        background: white;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px 10px 0px;
+        background-color: white;
+        gap: 80px;
+    }
+    
+    .header_logo img {
+        width: 272px;
+        height: 70px;
+    }
+    
+    .nav {
+        display: flex;
+        flex-grow: 1;
+        text-align: center;
+        width: 395px;
+        height: 34px;
+        flex-wrap: wrap;
+    }
+    
+    .nava {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #4D719B;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    
+    .register button {
+        background-color: #FF8C00;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .register button:hover {
+        background-color: #FF7A00;
+    } 
+    .novost {
+        margin-left: 15px;
+        text-decoration: none;
+        color: #22374F;
+        font-size: 15px;
+        font-weight: 500;
+    }   
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-section {
+            position: relative;
+            background: url("{% static 'img/Rectangle 603.png' %}");
+            display: flex;
+            align-items: center;
+            padding: 50px 50px 0px;
+            max-width: 1440px;
+            margin: 0 auto;
+            /* background: linear-gradient(0deg, #EEF5FA, #EEF5FA), linear-gradient(273.81deg, #9DCAFF 3.67%, #CBE3FF 36.99%, #EBF5FF 52.84%); */
+        }
+
+        .text-content {
+            max-width: 500px;
+            position: absolute;
+            left: 180px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #2f3141;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #2f3141;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #5a5a5a;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        .button01 {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #FF7A00 0%, #FF4500 100%);
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button01:hover {
+            background: linear-gradient(90deg, #FF4500 0%, #FF7A00 100%);
+            transform: translateY(-2px);
+        }
+
+        .buttons {
+            margin-top: 20px;
+            width: 215px;
+        }
+
+        .image-content {
+            max-width: 600px;
+            margin-left: 480px;
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+        }
+/* Основные стили для навигации */
+.nav-item {
+    position: relative;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.nav-link {
+    color: #343a40;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Синий цвет при наведении */
+    background-color: #f8f9fa; /* Светло-серый фон при наведении */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+/* Стили для выпадающего меню */
+.dropdown-menu {
+    display: none; /* Изначально скрыто */
+    position: absolute;
+    top: 100%; /* Выравнивание по нижнему краю навигационного элемента */
+    left: 0;
+    background-color: #fff; /* Белый фон */
+    border: 1px solid #ddd; /* Светлая рамка */
+    border-radius: 5px; /* Скругленные углы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Тень для выпадающего меню */
+    z-index: 1000; /* Для обеспечения перекрытия других элементов */
+    padding: 10px 0; /* Отступы внутри */
+    list-style: none; /* Убираем маркеры списка */
+}
+
+/* Стили для элементов внутри выпадающего меню */
+.dropdown-item {
+    color: #343a40; /* Цвет текста */
+    padding: 10px 15px; /* Отступы внутри элементов */
+    text-decoration: none;
+    display: block; /* Отображение в виде блока */
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa; /* Фон при наведении */
+    color: #007bff; /* Цвет текста при наведении */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+/* Показ выпадающего меню при наведении */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Стиль для активного элемента меню */
+.nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Стили для стрелки вниз на выпадающем меню */
+.nav-link.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: 0.2em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transform: rotate(45deg);
+}
+
+</style>
+<header>
+    <div class="container-header">
+        <div class="header">
+            <div class= "header_logo"> 
+            <img class="alolo" src="{% static 'img/Rectangle 661.png' %}" alt=""></div>
+            <nav class="nav">
+                <a class="novost" href="{% url 'index_new' %}">Новости</a>
+                <a class="nava" href="#">Лица конкурса</a>
+                <a class="nava" href="#">Как стать студентом?</a>
+                <a class="nava" href="#">Критерии защиты проектов</a>
+                <a class="nava" href="#">Контакты</a>
+            </nav>
+        </div>
+        {% if request.user.is_authenticated %}
+
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ request.user.username }}
+            </a>
+            <ul class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'workspace' %}">Workspace</a>
+            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a> 
+            </ul>
+        </div>
+
+
+    {% else %}
+
+        <div class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'login' %}">Login</a>
+        </div>
+        <div class="register">
+            <a class="nav-link" aria-current="page" href="{% url 'register' %}">Register</a>
+        </div>
+
+    {% endif %}
+    </div>
+    <div class="container-section">
+        <div class="text-content">
+            <h1>ШКОЛА</h1>
+            <h2>НАСТАВНИЧЕСТВА</h2>
+            <p>
+                Онлайн-программа обучения навыкам социального проектирования для финалистов конкурса «Могу всё изменить!» 
+                позволит запустить и масштабировать свои социальные проекты при поддержке команды наставников, 
+                экспертов и советников, которые помогут подготовиться к грантовому конкурсу и повысят шансы на победу.
+            </p>
+            <div class="buttons">
+                <a class="button01" href="#" class="button">Подать заявку</a>
+                <a class="button01" href="#" class="button">Подать заявку</a>
+            </div>
+            
+        </div>
+        <div class="image-content">
+            <img src="{% static 'img/Frame 1005.png' %}" alt="Наставничество">
+        </div>
+    </div>
+
+</header>
+<!-- https://www.youtube.com/watch?v=vQfTV7AqmUo -->

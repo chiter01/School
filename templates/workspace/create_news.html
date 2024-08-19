@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  | Create Pradact
+{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .mb-4 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .form-control,
+  .form-select {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  form p{
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left:5px;
+  }
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .form-check-label {
+    margin-left: 10px;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:98%;
+    border:none;
+    margin-left: 15px;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    color: red;
+  }
+  .form-control, .form-select {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 10px;
+
+}
+  form {
+    margin-bottom:20px;
+  }
+  .form-control,
+  .form-select {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .form-check-label {
+    margin-left: 10px;
+  }
+</style>
+  <h3 class="mb-4">Create news</h3>
+
+  <form action="{% url 'create_news' %}" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <div>
+      <button type="submit" style="margin-top: 10px;" class="btn btn-success">Create</button>
+    </div>
+  </form>
+{% endblock %}
